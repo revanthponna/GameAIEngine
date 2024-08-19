@@ -40,4 +40,27 @@
 * Initially, I designed the tile graph such that nodes were not added in the space where obstacles were present. However, this approach led to various bugs related to vector sizes, since the number of rows and columns would change every time an obstacle was present.
 * So, I instead added nodes regardless of the presence of obstacles, but had a bool variable indicating if it is occupying the space of an obstacle. This made it much more easier to quantize the environment and implement A*.
 
+## Part 3: Decision Making
+
+* The final part of the Game AI Engine was to explore and implement decision-making algorithms and combine them with the previous parts.
+
+### Decision Trees
+
+* For the abstraction scheme, the main variables I decided to use for my decision and behavior trees were:
+1. The velocity of the character/boid - This is for the initial velocity check that determines which decision node to go to next.
+2. The locations of all the obstacles in the scene - Data on the obstacles is important because we want to check for distances between the character and obstacles at all times, to avoid bumping into them.
+3. Mouse Click - I am not sure how to frame this as an abstraction scheme/parameterization yet, because it is technically not a state of environment, but it is something that the decision tree considers when outputting actions.
+
+### Behavior Trees
+
+* Although I did not explicitly define a ‘Tick’ for the behavior tree, I found another way of storing node names and using them to implement the respective decision and action tasks.
+* This was a really nice discovery, as I was able to update the names accordingly, which made it much simpler and easier to understand for me as a developer.
+
+### Goal-Oriented Action Planning
+
+* For my player character, I defined goals like avoiding the monster, avoiding collisions, and/or reaching a particular destination in the environment.
+* The corresponding actions to these goals were also defined, such as pathfinding and evading the monster.
+*  Since one of the goals was to avoid the monster, it was essential to take in the monster’s state (position, velocity, orientation) to determine what actions to take at each point. This was different from the decision tree implementation where I only focused on the state of the player and environment.
+
+
 
