@@ -1,5 +1,6 @@
 # Game AI Engine
 
+
 ## Part 1: Movement AI
 
 * In the first part of this project, I focused on AI movement algorithms such as Dynamic Arrive, Wander, and Flocking behaviors.
@@ -17,6 +18,8 @@
 * I developed the flocking behavior by implementing a blend between 3 functions: Separation, Arrive, and Velocity Match.
 * The Separation algorithm makes sure that the followers and leader of the flock do not bump into each other, and always remain at a consistent distance from each other.
 * On the other hand, the Arrive and Velocity Match functions ensure that the members of the flock (white) follow the leader (red).
+
+
 
 ## Part 2: Pathfinding
 
@@ -39,6 +42,8 @@
 * For my abstraction scheme, I decided to implement a tile graph since that seemed the most effective way to incorporate with my graph structure.
 * Initially, I designed the tile graph such that nodes were not added in the space where obstacles were present. However, this approach led to various bugs related to vector sizes, since the number of rows and columns would change every time an obstacle was present.
 * So, I instead added nodes regardless of the presence of obstacles, but had a bool variable indicating if it is occupying the space of an obstacle. This made it much more easier to quantize the environment and implement A*.
+
+
 
 ## Part 3: Decision Making
 
